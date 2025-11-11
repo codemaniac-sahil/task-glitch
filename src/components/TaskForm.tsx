@@ -102,7 +102,7 @@ export default function TaskForm({ open, onClose, onSubmit, existingTitles, init
               type="number"
               value={revenue}
               onChange={e => setRevenue(e.target.value === '' ? '' : Number(e.target.value))}
-              inputProps={{ min: 0, step: 1 }}
+              inputProps={{ min: 0, step: 0.01 }}
               required
               fullWidth
             />
@@ -111,7 +111,7 @@ export default function TaskForm({ open, onClose, onSubmit, existingTitles, init
               type="number"
               value={timeTaken}
               onChange={e => setTimeTaken(e.target.value === '' ? '' : Number(e.target.value))}
-              inputProps={{ min: 1, step: 1 }}
+              inputProps={{ min: 0.01, step: 0.01 }}
               required
               fullWidth
             />

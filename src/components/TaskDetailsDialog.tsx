@@ -44,8 +44,8 @@ export default function TaskDetailsDialog({ open, task, onClose, onSave }: Props
             Created: {new Date(task.createdAt).toLocaleString()} {task.completedAt ? `• Completed: ${new Date(task.completedAt).toLocaleString()} • Cycle: ${daysBetween(task.createdAt, task.completedAt)}d` : ''}
           </Typography>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-            <TextField label="Revenue" type="number" value={revenue} onChange={e => setRevenue(e.target.value === '' ? '' : Number(e.target.value))} fullWidth />
-            <TextField label="Time Taken (h)" type="number" value={timeTaken} onChange={e => setTimeTaken(e.target.value === '' ? '' : Number(e.target.value))} fullWidth />
+            <TextField label="Revenue" type="number" value={revenue} onChange={e => setRevenue(e.target.value === '' ? '' : Number(e.target.value))} inputProps={{ min: 0, step: 0.01 }} fullWidth />
+            <TextField label="Time Taken (h)" type="number" value={timeTaken} onChange={e => setTimeTaken(e.target.value === '' ? '' : Number(e.target.value))} inputProps={{ min: 0.01, step: 0.01 }} fullWidth />
           </Stack>
           <TextField label="Notes" value={notes} onChange={e => setNotes(e.target.value)} multiline minRows={3} />
           <Typography variant="body2" color="text.secondary">Priority: {task.priority} • Status: {task.status}</Typography>
